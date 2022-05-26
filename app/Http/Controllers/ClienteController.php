@@ -44,7 +44,7 @@ class ClienteController extends Controller
     public function destroy($id, Request $request)
     {
         Cliente::destroy($id);  //Destroi pelo id
-        $request->sessio()->flash("status", "excluído");    //sessão de status excluído
+        $request->session()->flash("status", "excluido");    //sessão de status excluído
         return redirect("/cliente");
     }
 }

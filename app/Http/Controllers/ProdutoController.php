@@ -44,7 +44,7 @@ class ProdutoController extends Controller
     public function destroy($id, Request $request)
     {
         Produto::destroy($id);  //Destroi pelo id
-        $request->sessio()->flash("status", "excluído");    //sessão de status excluído
+        $request->session()->flash("status", "excluido");    //sessão de status excluído
         return redirect("/produto");
     }
 }

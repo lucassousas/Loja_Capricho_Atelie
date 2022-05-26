@@ -19,6 +19,9 @@
 		
 		<!-- JQUERY -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+		<!-- JQUERY MASK -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.js" integrity="sha512-2Pv9x5icS9MKNqqCPBs8FDtI6eXY0GrtBy8JdSwSR4GVlBWeH5/eqXBFbwGGqHka9OABoFDelpyDnZraQawusw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body>
 		<div class="container">

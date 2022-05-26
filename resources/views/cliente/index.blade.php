@@ -11,7 +11,7 @@
 		</div>
 		<div class="form-group col-5">
 			<label for="cpf">CPF: </label>
-			<input type="text" name="cpf" class="form-control" value="{{ $cliente->cpf }}" />
+			<input type="text" id="cpf" name="cpf" class="form-control" value="{{ $cliente->cpf }}" />
 		</div>
 		<div class="form-group col-3">
 			@csrf
@@ -23,20 +23,19 @@
 @endsection
 
 @section("tabela")
-	<br />
-	<table class="table table-striped">
+	<table class="table table-striped" style="margin-top: 20px;">
 		<colgroup>
-			<col width="100">
 			<col width="200">
-			<col width="80">
-			<col width="80">
+			<col width="200">
+			<col width="100">
+			<col width="100">
 		</colgroup>
 		<thead>
 			<tr>
 				<th>Nome</th>
 				<th>CPF</th>
-				<th>Editar</th>
-				<th>Excluir</th>
+				<th>Edit</th>
+				<th>Del</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,13 +44,13 @@
 					<td>{{ $cliente->nome }}</td>
 					<td>{{ $cliente->cpf }}</td>
 					<td>
-						<a href="/cliente/{{ $cliente->id }}/edit" class="btn btn-warning">Editar</a>
+						<a href="/cliente/{{ $cliente->id }}/edit" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Editar</a>
 					</td>
 					<td>
 						<form method="POST" action="/cliente/{{ $cliente->id }}">
 							@csrf
 							<input type="hidden" name="_method" value="DELETE" />
-							<button type="submit" onclick="return confirm('Deseja realmente excluir?');" class="btn btn-danger">Excluir</button>
+							<button type="submit" onclick="return confirm('Deseja realmente excluir?');" class="btn btn-danger"><i class="bi bi-trash"></i> Excluir</button>
 						</form>
 					</td>
 				</tr>
@@ -59,3 +58,9 @@
 		</tbody>
 	</table>
 @endsection
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		$("#cpf").mask("000.000.000-00", {"placeholder": "___.___.___-__"});
+	});
+</script>
