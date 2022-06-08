@@ -40,8 +40,12 @@
 					<td>{{ $venda->id }}</td>
 					<td>{{ $venda->data }}</td>
 					<td>{{ $venda->cliente }}</td>
-					<td class="td_preco">{{ numberformat($venda->total, 2) }}</td>
-					<td></td>
+					<td class="td_preco">{{ number_format($venda->total, 2) }}</td>
+					<td>
+						<a href="/venda/{{ $venda->id }}/edit" class="btn btn-warning">
+							<i class="bi bi-pencil-square"> Editar</i>
+						</a>
+					</td>
 					<td></td>
 				</tr>
 			@endforeach

@@ -40,49 +40,44 @@ class VendaController extends Controller
     
     public function store(Request $request)
     {
-        //
+        if($request->get("id") != ""){
+            $venda = Venda::Find($request->get("id"));
+        } else {
+            $venda = new Venda();
+        }
+
+        $venda->cliente_id = $request->get("cliente_id");
+        $venda->total = 0;
+
+        $venda->save();
+        $request->session()->flash("status", "salvo");
+
+        return redirect("/venda/" . $venda->id . "/edit");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $venda = Venda::Find($id);
+        $clientes = Cliente::All();
+        $itens = [];
+
+        return view("venda.index", [
+            "venda" => $venda,
+            "clientes" => $clientes,
+            "itens" => $itens
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
