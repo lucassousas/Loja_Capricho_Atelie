@@ -1,6 +1,6 @@
 @extends("templates.main")
 
-@section("title", "Clientes")
+@section("titulo", "Clientes")
 
 @section("formulario")
 	<h1>Cadastro de Clientes</h1>
